@@ -89,11 +89,11 @@ impl SaveStateUnit for TimeUnit {
     }
 }
 
-pub struct ScoreUnit([u8;0x1]);
+pub struct ScoreUnit([u8;0x4]);
 
 impl ScoreUnit {
     pub fn new() -> ScoreUnit {
-        ScoreUnit([0;0x1])
+        ScoreUnit([0;0x4])
     }
 }
 
