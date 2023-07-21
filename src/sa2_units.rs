@@ -89,6 +89,26 @@ impl SaveStateUnit for TimeUnit {
     }
 }
 
+pub struct ScoreUnit([u8;0x1]);
+
+impl ScoreUnit {
+    pub fn new() -> ScoreUnit {
+        ScoreUnit([0;0x1])
+    }
+}
+
+impl SaveStateUnit for ScoreUnit {
+    fn save(&mut self, handle: &ProcessHandle) -> Result<(), &'static str> {
+        handle.read_data(0x0174B050, &mut self.0)?;
+        Ok(())
+    }
+
+    fn load(&self, handle: &ProcessHandle) -> Result<(), &'static str> {
+        handle.write_data(0x0174B050, &self.0)?;
+        Ok(())
+    }
+}
+
 pub struct GravityUnit([u8;0xc]);
 
 impl GravityUnit {
