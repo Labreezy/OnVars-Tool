@@ -4,7 +4,7 @@ use std::thread;
 use std::time::Duration;
 
 use onvars_tool::SaveStateUnit;
-use onvars_tool::sa2_units::{CharacterUnit, CameraUnit, TimeUnit, GravityUnit};
+use onvars_tool::sa2_units::{CharacterUnit, CameraUnit, TimeUnit, GravityUnit, ScoreUnit};
 use onvars_tool::process_reader::ProcessHandle;
 
 fn main() {
@@ -43,6 +43,7 @@ fn main() {
         Rc::new(CameraUnit::new()),
         Rc::new(TimeUnit::new()),
         Rc::new(GravityUnit::new()),
+        Rc::new(ScoreUnit::new()),
     ];
 
     let mut prev_buttons = 0;
